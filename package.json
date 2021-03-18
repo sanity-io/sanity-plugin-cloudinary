@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "license": "MIT",
+  "typings": "dist/typings.d.ts",
+  "files": [
+    "dist",
+    "sanity.json",
+    "config.dist.json"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "sanipack build",
+    "lint": "tsdx lint",
+    "prepare": "sanipack build"
+  },
+  "peerDependencies": {
+    "@sanity/base": "^2.6.2",
+    "@sanity/field": "^2.6.2",
+    "@sanity/form-builder": "^2.6.2",
+    "react": "^17.0",
+    "react-dom": "^17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "sanity-plugin-cloudinary",
+  "author": "",
+  "devDependencies": {
+    "@sanity/base": "^2.6.2",
+    "@sanity/field": "^2.6.2",
+    "@sanity/form-builder": "^2.6.2",
+    "@sanity/types": "^2.6.0",
+    "@size-limit/preset-small-lib": "^4.9.2",
+    "@types/react": "^17.0.2",
+    "@types/video.js": "^7.3.15",
+    "autoprefixer": "^9.0.0",
+    "cssnano": "^4.1.10",
+    "husky": "^5.1.3",
+    "postcss": "^8.0.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "sanipack": "^1.0.8",
+    "size-limit": "^4.9.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "video.js": "^7.11.7"
+  }
+}
