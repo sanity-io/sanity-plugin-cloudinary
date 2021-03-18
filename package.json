@@ -1,7 +1,6 @@
 {
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "MIT",
-  "typings": "dist/typings.d.ts",
   "files": [
     "dist",
     "sanity.json",
@@ -12,7 +11,6 @@
   },
   "scripts": {
     "build": "sanipack build",
-    "lint": "tsdx lint",
     "prepare": "sanipack build"
   },
   "peerDependencies": {
@@ -24,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "sanipack verify"
     }
   },
   "prettier": {
@@ -34,7 +32,7 @@
     "trailingComma": "es5"
   },
   "name": "sanity-plugin-cloudinary",
-  "author": "",
+  "author": "Sanity.io <hello@sanity.io>",
   "devDependencies": {
     "@sanity/base": "^2.6.2",
     "@sanity/field": "^2.6.2",
