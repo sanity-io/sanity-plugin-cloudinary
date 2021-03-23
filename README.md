@@ -19,8 +19,7 @@ Declare a field to be `cloudinary.asset` in your schema
 ## Config
 
 Includes easy configuration of your cloudname and api key, stored safely in your dataset as a private document.
-
-<img width="918" alt="Screen Shot 2021-03-22 at 10 54 16 PM" src="https://user-images.githubusercontent.com/38528/112099921-8c7ca680-8b61-11eb-8f64-3cd371fb8596.png">
+<img width="919" alt="Screen Shot 2021-03-22 at 10 55 56 PM" src="https://user-images.githubusercontent.com/38528/112100069-c3eb5300-8b61-11eb-81f8-189e8fcd56b8.png">
 
 Uses Cloudinary media library for selecting assets and transformations
 
