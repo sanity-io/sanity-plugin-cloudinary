@@ -52,12 +52,14 @@ const CloudinaryInput = (props: Props) => {
     }
 
     const { onChange } = props;
+    const _key = props.value && props.value._key;
     onChange(
       PatchEvent.from([
         set(
-          Object.assign(props.value || {}, asset, {
-            _type: props.type.name,
+          Object.assign({}, asset, {
             _version: 1,
+            _type: props.type.name,
+            ...(_key ? { _key } : null),
           })
         ),
       ])

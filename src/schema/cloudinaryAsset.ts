@@ -4,7 +4,8 @@ import AssetPreview from '../components/AssetPreview';
 import { CloudinaryAssetDerived } from './cloudinaryAssetDerived';
 
 export type CloudinaryAsset = {
-  _type: number;
+  _type: string;
+  _key?: string;
   _version: number;
   public_id: string;
   resource_type: string;
