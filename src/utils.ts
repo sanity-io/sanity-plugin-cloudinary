@@ -3,9 +3,15 @@ import { CloudinaryAsset } from './schema/cloudinaryAsset';
 export function assetUrl(asset: CloudinaryAsset) {
   if (asset.derived && asset.derived.length > 0) {
     const [derived] = asset.derived;
-    return derived.secure_url;
+    if (derived.secure_url) {
+      return derived.secure_url;
+    }
+    return derived.url;
   }
-  return asset.secure_url;
+  if (asset.secure_url) {
+    return asset.secure_url;
+  }
+  return asset.url;
 }
 
 export function loadJS(url: string, callback: () => void) {

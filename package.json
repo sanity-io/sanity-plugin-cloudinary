@@ -3,8 +3,7 @@
   "license": "MIT",
   "files": [
     "dist",
-    "sanity.json",
-    "config.dist.json"
+    "sanity.json"
   ],
   "engines": {
     "node": ">=10"
@@ -53,6 +52,8 @@
     "typescript": "^4.2.2"
   },
   "dependencies": {
+    "sanity-secrets": "^0.0.3",
+    "styled-components": "^5.2.1",
     "video.js": "^7.11.7"
   }
 }

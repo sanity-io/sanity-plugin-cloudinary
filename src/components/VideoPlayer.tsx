@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import videojs, { VideoJsPlayer } from 'video.js';
 
 type PlayerKind = 'player' | 'diff';
@@ -35,7 +35,7 @@ export default class VideoPlayer extends React.Component<
       diff: 'video-js vjs-layout-tiny vjs-fluid',
     };
 
-    const style = { position: 'relative' };
+    const style: CSSProperties = { position: 'relative' };
 
     return (
       <div>

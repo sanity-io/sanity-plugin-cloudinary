@@ -1,6 +1,6 @@
 import CloudinaryInput from '../components/CloudinaryInput';
 import AssetDiff from '../components/AssetDiff';
-
+import AssetPreview from '../components/AssetPreview';
 import { CloudinaryAssetDerived } from './cloudinaryAssetDerived';
 
 export type CloudinaryAsset = {
@@ -80,7 +80,7 @@ export default {
     {
       type: 'array',
       name: 'derived',
-      of: [{ type: 'cloudinary.asset.derived' }],
+      of: [{ type: 'cloudinary.assetDerived' }],
     },
     {
       type: 'string',
@@ -91,9 +91,18 @@ export default {
   ],
   inputComponent: CloudinaryInput,
   diffComponent: AssetDiff,
+  preview: {
+    select: {
+      url: 'url',
+      resource_type: 'resource_type',
+      derived: 'derived.0.url',
+    },
+    prepare({ url, derived, resource_type }: any) {
+      return {
+        resource_type,
+        url: derived || url,
+      };
+    },
+    component: AssetPreview,
+  },
 };
-
-/*
-{
-}
-*/

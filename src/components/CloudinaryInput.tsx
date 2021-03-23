@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WidgetInput from './WidgetInput';
 import { loadJS } from '../utils';
-import pluginConfig from 'config:cloudinary';
 import PatchEvent, { set } from 'part:@sanity/form-builder/patch-event';
 import { CloudinaryAssetResponse } from '../typings';
 import { CloudinaryAsset } from '../schema/cloudinaryAsset';
+import { useSecrets, SettingsView } from 'sanity-secrets';
+
+const widgetSrc = 'https://media-library.cloudinary.com/global/all.js';
 
 type Props = {
   type: Record<string, any>;
@@ -16,11 +18,33 @@ type Props = {
   presence: any[];
 };
 
+type Secrets = {
+  cloudName: string;
+  apiKey: string;
+};
+
+const pluginConfigKeys = [
+  {
+    key: 'cloudName',
+    title: 'Cloud name',
+    description: '',
+  },
+  {
+    key: 'apiKey',
+    title: 'API key',
+    description: '',
+  },
+];
+
 type InsertHandlerParams = {
   assets: CloudinaryAssetResponse[];
 };
 
 const CloudinaryInput = (props: Props) => {
+  const namespace = 'cloudinary';
+  const [showSettings, setShowSettings] = useState(false);
+  const { secrets } = useSecrets<Secrets>(namespace);
+
   const handleSelect = ({ assets }: InsertHandlerParams) => {
     const [asset] = assets;
     if (!asset) {
@@ -31,7 +55,7 @@ const CloudinaryInput = (props: Props) => {
     onChange(
       PatchEvent.from([
         set(
-          Object.assign({}, asset, {
+          Object.assign(props.value || {}, asset, {
             _type: props.type.name,
             _version: 1,
           })
@@ -40,12 +64,11 @@ const CloudinaryInput = (props: Props) => {
     );
   };
 
-  const url = 'https://media-library.cloudinary.com/global/all.js';
-  const openMediaSelector = () => {
-    loadJS(url, () => {
+  const openMediaSelector = (cloudName: string, apiKey: string) => {
+    loadJS(widgetSrc, () => {
       const options: Record<string, any> = {
-        cloud_name: pluginConfig.cloudName,
-        api_key: pluginConfig.apiKey,
+        cloud_name: cloudName,
+        api_key: apiKey,
         insert_caption: 'Select',
         multiple: false,
         max_files: 1,
@@ -65,7 +88,29 @@ const CloudinaryInput = (props: Props) => {
     });
   };
 
-  return <WidgetInput {...props} openMediaSelector={openMediaSelector} />;
+  const action = secrets
+    ? () => openMediaSelector(secrets.cloudName, secrets.apiKey)
+    : () => setShowSettings(true);
+
+  return (
+    <>
+      {showSettings && (
+        <SettingsView
+          title="Cloudinary config"
+          namespace={namespace}
+          keys={pluginConfigKeys}
+          onClose={() => {
+            setShowSettings(false);
+          }}
+        />
+      )}
+      <WidgetInput
+        onSetup={() => setShowSettings(true)}
+        openMediaSelector={action}
+        {...props}
+      />
+    </>
+  );
 };
 
 export default CloudinaryInput;

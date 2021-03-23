@@ -6,7 +6,7 @@ export type CloudinaryAssetDerived = {
 
 export default {
   type: 'object',
-  name: 'cloudinary.asset.derived',
+  name: 'cloudinary.assetDerived',
   fields: [
     {
       type: 'string',

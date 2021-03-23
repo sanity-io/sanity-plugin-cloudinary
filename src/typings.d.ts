@@ -49,12 +49,3 @@ declare module 'part:@sanity/components/fieldsets/default' {
   const shim: any;
   export default shim;
 }
-
-declare module 'config:cloudinary' {
-  type CloudinaryConfig = {
-    cloudName?: string;
-    apiKey?: string;
-  };
-  const shim: CloudinaryConfig;
-  export default shim;
-}

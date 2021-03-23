@@ -8,11 +8,10 @@ type ComponentProps = {
 };
 
 const AssetPreview = ({ value }: ComponentProps) => {
-  if (!value) {
+  const url = value && assetUrl(value);
+  if (!value || !url) {
     return null;
   }
-
-  const url = assetUrl(value);
 
   switch (value.resource_type) {
     case 'video':
