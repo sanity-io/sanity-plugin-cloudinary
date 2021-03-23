@@ -29,7 +29,7 @@ Uses Cloudinary media library for selecting assets and transformations
 <img width="996" alt="Screen Shot 2021-03-22 at 10 07 52 PM" src="https://user-images.githubusercontent.com/38528/112096210-0f4e3300-8b5b-11eb-9f26-45481df878ba.png">
 
 ## Content
-Here is an example of which data is stored on your documents after selecting an asset.
+Here is an example of which data is stored on your document after selecting an asset.
 
 ```json
 {
@@ -52,6 +52,8 @@ Here is an example of which data is stored on your documents after selecting an 
     "_type": "cloudinary.asset"
   }
 ```
+
+Note: The `_version` in the data here refers to the schema version of this plugin, should the way it stores the data from Cloudinary change in the future.
 
 ## Transformations
 
