@@ -71,7 +71,7 @@ const WidgetInput = (props: Props) => {
         description={type.description}
         level={level}
       >
-        <div style={{ textAlign: 'center', minHeight: '100%' }}>
+        <div style={{ textAlign: 'center' }}>
           <AssetPreview value={value} />
         </div>
 
