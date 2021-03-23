@@ -9,7 +9,6 @@
 Declare a field to be `cloudinary.asset` in your schema
 
 ```javascript
-     /...,
     {
       type: "cloudinary.asset",
       name: "image",
