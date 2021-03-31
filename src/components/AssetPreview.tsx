@@ -4,10 +4,11 @@ import { assetUrl } from '../utils';
 import { CloudinaryAsset } from '../schema/cloudinaryAsset';
 
 type ComponentProps = {
+  layout?: 'default' | 'block';
   value: CloudinaryAsset | undefined;
 };
 
-const AssetPreview = ({ value }: ComponentProps) => {
+const AssetPreview = ({ value, layout }: ComponentProps) => {
   const url = value && assetUrl(value);
   if (!value || !url) {
     return null;
@@ -21,7 +22,10 @@ const AssetPreview = ({ value }: ComponentProps) => {
         <img
           alt="preview"
           src={url}
-          style={{ maxWidth: '100%', height: 'auto' }}
+          style={{
+            maxWidth: layout === 'default' ? '80px' : '100%',
+            height: 'auto',
+          }}
         />
       );
   }
