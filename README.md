@@ -28,6 +28,19 @@ Uses Cloudinary media library for selecting assets and transformations
 
 <img width="996" alt="Screen Shot 2021-03-22 at 10 07 52 PM" src="https://user-images.githubusercontent.com/38528/112096210-0f4e3300-8b5b-11eb-9f26-45481df878ba.png">
 
+## In arrays
+
+If you use this type in an array, you will have additional array functions for adding multiple assets at once, and for configuring the connection to Cloudinary.
+
+```javascript
+{
+  type: "array":
+  name: "assets",
+  of: [{type: "cloudinary.asset"}]
+}
+```
+
+
 ## Content
 Here is an example of which data is stored on your document after selecting an asset.
 
