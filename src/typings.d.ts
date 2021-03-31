@@ -1,5 +1,17 @@
 import * as React from 'react';
 
+export type InsertHandlerParams = {
+  assets: CloudinaryAssetResponse[];
+};
+
+declare global {
+  interface Window {
+    cloudinary: {
+      openMediaLibrary: (config: any, callbacks: any) => void;
+    };
+  }
+}
+
 declare module '*.css' {
   const content: { [className: string]: CSSProperties };
   export default content;

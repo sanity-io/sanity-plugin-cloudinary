@@ -14,6 +14,7 @@ export default class VideoPlayer extends React.Component<
 > {
   videoNode?: HTMLVideoElement;
   player?: VideoJsPlayer;
+
   componentDidMount() {
     const { src } = this.props;
     this.player = videojs(this.videoNode, {
@@ -45,6 +46,7 @@ export default class VideoPlayer extends React.Component<
         />
         <div data-vjs-player>
           <video
+            onClick={event => event.stopPropagation()}
             style={kind === 'diff' ? style : {}}
             className={className[kind]}
             ref={node => {

@@ -16,14 +16,6 @@ const SetupButtonContainer = styled.div`
   transform: translate(0%, -10%);
 `;
 
-declare global {
-  interface Window {
-    cloudinary: {
-      openMediaLibrary: (config: any, callbacks: any) => void;
-    };
-  }
-}
-
 type Props = {
   type: Record<string, any>;
   onChange: (patches: any) => void;

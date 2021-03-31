@@ -11,6 +11,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "schema/cloudinaryAsset"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/array/functions",
+      "path": "arrayFunctions"
     }
   ]
 }

@@ -1,4 +1,7 @@
 import { CloudinaryAsset } from './schema/cloudinaryAsset';
+import { InsertHandlerParams } from './typings';
+
+const widgetSrc = 'https://media-library.cloudinary.com/global/all.js';
 
 export function assetUrl(asset: CloudinaryAsset) {
   if (asset.derived && asset.derived.length > 0) {
@@ -13,6 +16,33 @@ export function assetUrl(asset: CloudinaryAsset) {
   }
   return asset.url;
 }
+
+export const openMediaSelector = (
+  cloudName: string,
+  apiKey: string,
+  multiple: boolean,
+  insertHandler: (params: InsertHandlerParams) => void,
+  selectedAsset?: CloudinaryAsset
+) => {
+  loadJS(widgetSrc, () => {
+    const options: Record<string, any> = {
+      cloud_name: cloudName,
+      api_key: apiKey,
+      insert_caption: 'Select',
+      multiple,
+    };
+
+    if (selectedAsset) {
+      options.asset = {
+        public_id: selectedAsset.public_id,
+        type: selectedAsset.type,
+        resource_type: selectedAsset.resource_type,
+      };
+    }
+
+    window.cloudinary.openMediaLibrary(options, { insertHandler });
+  });
+};
 
 export function loadJS(url: string, callback: () => void) {
   const existingScript = document.getElementById('damWidget');

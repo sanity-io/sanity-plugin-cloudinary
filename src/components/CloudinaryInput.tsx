@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import WidgetInput from './WidgetInput';
-import { loadJS } from '../utils';
-import PatchEvent, { set } from 'part:@sanity/form-builder/patch-event';
-import { CloudinaryAssetResponse } from '../typings';
+import { nanoid } from 'nanoid';
+import PatchEvent, {
+  set,
+  setIfMissing,
+} from 'part:@sanity/form-builder/patch-event';
 import { CloudinaryAsset } from '../schema/cloudinaryAsset';
-import { useSecrets, SettingsView } from 'sanity-secrets';
-
-const widgetSrc = 'https://media-library.cloudinary.com/global/all.js';
+import { useSecrets } from 'sanity-secrets';
+import { InsertHandlerParams } from '../typings';
+import { openMediaSelector } from '../utils';
+import SecretsConfigView, { Secrets, namespace } from './SecretsConfigView';
 
 type Props = {
   type: Record<string, any>;
@@ -18,93 +21,49 @@ type Props = {
   presence: any[];
 };
 
-type Secrets = {
-  cloudName: string;
-  apiKey: string;
-};
-
-const pluginConfigKeys = [
-  {
-    key: 'cloudName',
-    title: 'Cloud name',
-    description: '',
-  },
-  {
-    key: 'apiKey',
-    title: 'API key',
-    description: '',
-  },
-];
-
-type InsertHandlerParams = {
-  assets: CloudinaryAssetResponse[];
-};
-
 const CloudinaryInput = (props: Props) => {
-  const namespace = 'cloudinary';
   const [showSettings, setShowSettings] = useState(false);
   const { secrets } = useSecrets<Secrets>(namespace);
 
-  const handleSelect = ({ assets }: InsertHandlerParams) => {
-    const [asset] = assets;
+  const handleSelect = (payload: InsertHandlerParams) => {
+    const [asset] = payload.assets;
     if (!asset) {
       return;
     }
 
-    const { onChange } = props;
-    const _key = props.value && props.value._key;
+    const { onChange, type } = props;
+    const value = props.value || {};
     onChange(
       PatchEvent.from([
         set(
-          Object.assign({}, asset, {
-            _version: 1,
-            _type: props.type.name,
-            ...(_key ? { _key } : null),
-          })
+          Object.assign(
+            {
+              _type: type.name,
+              _version: 1,
+              ...(value._key ? { _key: value._key } : { _key: nanoid() }),
+            },
+            asset
+          )
         ),
       ])
     );
   };
 
-  const openMediaSelector = (cloudName: string, apiKey: string) => {
-    loadJS(widgetSrc, () => {
-      const options: Record<string, any> = {
-        cloud_name: cloudName,
-        api_key: apiKey,
-        insert_caption: 'Select',
-        multiple: false,
-        max_files: 1,
-      };
-
-      if (props.value) {
-        options.asset = {
-          public_id: props.value.public_id,
-          type: props.value.type,
-          resource_type: props.value.resource_type,
-        };
-      }
-
-      window.cloudinary.openMediaLibrary(options, {
-        insertHandler: handleSelect,
-      });
-    });
-  };
-
   const action = secrets
-    ? () => openMediaSelector(secrets.cloudName, secrets.apiKey)
+    ? () =>
+        openMediaSelector(
+          secrets.cloudName,
+          secrets.apiKey,
+          false, // single selection
+          handleSelect,
+          props.value
+        )
     : () => setShowSettings(true);
 
   return (
     <>
       {showSettings && (
-        <SettingsView
-          title="Cloudinary config"
-          namespace={namespace}
-          keys={pluginConfigKeys}
-          onClose={() => {
-            setShowSettings(false);
-          }}
-        />
+        <SecretsConfigView onClose={() => setShowSettings(false)} />
       )}
       <WidgetInput
         onSetup={() => setShowSettings(true)}
