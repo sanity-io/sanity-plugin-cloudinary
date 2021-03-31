@@ -34,11 +34,14 @@ If you use this type in an array, you will have additional array functions for a
 
 ```javascript
 {
-  type: "array":
-  name: "assets",
-  of: [{type: "cloudinary.asset"}]
+  type: "array",
+  name: "cloudinaryList",
+  description: "This asset is served from Cloudinary",
+  of: [{ type: "cloudinary.asset" }]
 }
 ```
+
+<img width="658" alt="Screen Shot 2021-03-30 at 5 59 09 PM" src="https://user-images.githubusercontent.com/38528/113075424-bfd2bd00-9181-11eb-94e4-f69da4688963.png">
 
 
 ## Content
