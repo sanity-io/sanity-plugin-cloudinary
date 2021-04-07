@@ -32,7 +32,7 @@ const AssetListFunctions = props => {
         onCreateValue(cloudinaryType)
       )
     );
-    onChange(PatchEvent.from(insert(items, 'after', [-1])));
+    onChange(PatchEvent.from(setIfMissing([]), insert(items, 'after', [-1])));
   };
 
   const actions = (
