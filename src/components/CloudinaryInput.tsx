@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import WidgetInput from './WidgetInput';
 import { nanoid } from 'nanoid';
-import PatchEvent, {
-  set,
-  setIfMissing,
-} from 'part:@sanity/form-builder/patch-event';
+import PatchEvent, { set } from 'part:@sanity/form-builder/patch-event';
 import { CloudinaryAsset } from '../schema/cloudinaryAsset';
 import { useSecrets } from 'sanity-secrets';
 import { InsertHandlerParams } from '../typings';

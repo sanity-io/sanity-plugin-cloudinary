@@ -1,20 +1,21 @@
+/*
+        <RatioBox ratio={3 / 2} padding={1}>
+          <Flex align="center" justify="center">
+            {value && renderAsset()}
+            {!value && renderPlaceholder()}
+          </Flex>
+        </RatioBox>
+        */
 import React from 'react';
 import PatchEvent, { unset } from 'part:@sanity/form-builder/patch-event';
-import ButtonGrid from 'part:@sanity/components/buttons/button-grid';
-import Button from 'part:@sanity/components/buttons/default';
-import Fieldset from 'part:@sanity/components/fieldsets/default';
-import SetupIcon from 'part:@sanity/base/plugin-icon';
+import { Button, Grid, Text, Flex } from '@sanity/ui';
+import { FormFieldSet } from '@sanity/base/components';
 import { Marker } from '@sanity/types';
 import styled from 'styled-components';
 import { CloudinaryAsset } from '../schema/cloudinaryAsset';
 import AssetPreview from './AssetPreview';
-
-const SetupButtonContainer = styled.div`
-  position: relative;
-  display: block;
-  font-size: 0.8em;
-  transform: translate(0%, -10%);
-`;
+import { SearchIcon, TrashIcon, ControlsIcon } from '@sanity/icons';
+import { RatioBox } from './RatioBox';
 
 type Props = {
   type: Record<string, any>;
@@ -44,50 +45,73 @@ const WidgetInput = (props: Props) => {
     openMediaSelector,
   } = props;
 
+  const renderAsset = () => <AssetPreview value={value} />;
+
+  const renderPlaceholder = () => {
+    return readOnly ? (
+      <Text align="center" muted>
+        This field is read-only
+      </Text>
+    ) : (
+      <Text align="center" muted>
+        No asset selected
+      </Text>
+    );
+  };
+
   return (
     <>
-      <SetupButtonContainer>
-        <Button
-          color="primary"
-          icon={SetupIcon}
-          kind="simple"
-          title="Configure"
-          onClick={props.onSetup}
-          tabIndex={1}
-        />
-      </SetupButtonContainer>
-      <Fieldset
-        markers={markers}
-        presence={presence}
-        legend={type.title}
+      <Button
+        mode="ghost"
+        icon={ControlsIcon}
+        kind="simple"
+        title="Configure"
+        onClick={props.onSetup}
+        tabIndex={1}
+      />
+      <FormFieldSet
+        __unstable_markers={markers}
+        __unstable_presence={presence}
+        title={type.title}
         description={type.description}
-        level={level}
+        level={level - 1}
+        __unstable_changeIndicator={false}
       >
-        <div style={{ textAlign: 'center' }}>
-          <AssetPreview value={value} />
+        <div
+          style={{
+            width: '100%',
+            height: '0',
+            paddingBottom: '56.25%',
+          }}
+        >
+          {value && renderAsset()}
+          {!value && renderPlaceholder()}
         </div>
 
-        <ButtonGrid align="start">
+        <Grid
+          gap={1}
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(10px, 1fr))',
+          }}
+        >
           <Button
             disabled={readOnly}
-            inverted
-            title="Select an asset"
-            kind="default"
+            mode="ghost"
+            text="Select…"
+            icon={SearchIcon}
             onClick={openMediaSelector}
-          >
-            Select…
-          </Button>
-          <Button
-            disabled={readOnly || !value}
-            color="danger"
-            inverted
-            title="Remove asset"
-            onClick={removeValue}
-          >
-            Remove
-          </Button>
-        </ButtonGrid>
-      </Fieldset>
+          />
+          {value && !readOnly && (
+            <Button
+              tone="critical"
+              mode="ghost"
+              icon={TrashIcon}
+              onClick={removeValue}
+              text="Remove"
+            />
+          )}
+        </Grid>
+      </FormFieldSet>
     </>
   );
 };
