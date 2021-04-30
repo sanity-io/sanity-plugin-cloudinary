@@ -19,14 +19,20 @@ const AssetPreview = ({ value, layout }: ComponentProps) => {
       return <VideoPlayer src={url} kind="player" />;
     default:
       return (
-        <img
-          alt="preview"
-          src={url}
-          style={{
-            maxWidth: layout === 'default' ? '80px' : '100%',
-            height: 'auto',
-          }}
-        />
+        <div style={{ maxWidth: layout === 'default' ? '80px' : '100%' }}>
+          <div style={{ position: 'relative', paddingBottom: '56.2%' }}>
+            <img
+              style={{
+                position: 'absolute',
+                objectFit: 'contain',
+                width: '100%',
+                height: '100%',
+              }}
+              alt="preview"
+              src={url}
+            />
+          </div>
+        </div>
       );
   }
 };

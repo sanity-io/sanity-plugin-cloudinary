@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "MIT",
   "files": [
     "dist",
@@ -14,8 +14,11 @@
   },
   "peerDependencies": {
     "@sanity/base": "^2.6.2",
+    "@sanity/components": "^2.2.6",
     "@sanity/field": "^2.6.2",
     "@sanity/form-builder": "^2.6.2",
+    "@sanity/icons": "^1.0.6",
+    "@sanity/ui": "^0.33.19",
     "react": "^17.0",
     "react-dom": "^17.0"
   },
