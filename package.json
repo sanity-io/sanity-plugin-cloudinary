@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "files": [
     "dist",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "sanipack build",
-    "prepare": "sanipack build"
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build && sanipack verify"
   },
   "peerDependencies": {
     "@sanity/base": "^2.6.2",
@@ -45,7 +46,7 @@
     "husky": "^5.1.3",
     "postcss": "^8.0.0",
     "rollup-plugin-postcss": "^4.0.0",
-    "sanipack": "^1.0.8",
+    "sanipack": "2.0.1",
     "size-limit": "^4.9.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
@@ -53,7 +54,7 @@
   },
   "dependencies": {
     "nanoid": "^3.1.22",
-    "sanity-secrets": "^0.0.3",
+    "sanity-secrets": "^0.0.6",
     "styled-components": "^5.2.1",
     "video.js": "^7.11.7"
   }
