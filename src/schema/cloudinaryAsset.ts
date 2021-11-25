@@ -87,7 +87,10 @@ export default {
       type: 'string',
       name: 'access_mode',
     },
-    // context array of unknown content
+    {
+      type: 'cloudinary.assetContext',
+      name: 'context',
+    },
     // metadata array of unknown content
   ],
   inputComponent: CloudinaryInput,
