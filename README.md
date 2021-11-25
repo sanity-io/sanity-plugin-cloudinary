@@ -73,7 +73,11 @@ Here is an example of which data is stored on your document after selecting an a
     "bytes": 547710,
     "duration": null,
     "tags": [],
-    "metadata": {},
+    "context": {
+      "custom": {
+        "alt": "alternative text for image"
+      }
+    },
     "created_at": "2021-03-23T04:44:13Z",
     "access_mode": "public",
     "_version": 1,
@@ -103,7 +107,11 @@ You can create a transformation when selecting the asset, and this information i
     "bytes": 547710,
     "duration": null,
     "tags": null,
-    "metadata": [],
+    "context": {
+      "custom": {
+        "alt": "alternative text for image"
+      }
+    },
     "created_at": "2021-03-23T04:44:13Z",
     "derived": [
       {

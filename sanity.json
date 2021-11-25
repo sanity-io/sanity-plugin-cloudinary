@@ -6,6 +6,14 @@
   "parts": [
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "schema/cloudinaryAssetContext"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schema/cloudinaryAssetContextCustom"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "schema/cloudinaryAssetDerived"
     },
     {
