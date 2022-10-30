@@ -1,53 +1,43 @@
-import React, { useState } from 'react';
-import WidgetInput from './WidgetInput';
-import { nanoid } from 'nanoid';
-import PatchEvent, {
-  set,
-  setIfMissing,
-} from 'part:@sanity/form-builder/patch-event';
-import { CloudinaryAsset } from '../schema/cloudinaryAsset';
-import { useSecrets } from 'sanity-secrets';
-import { InsertHandlerParams } from '../typings';
-import { openMediaSelector } from '../utils';
-import SecretsConfigView, { Secrets, namespace } from './SecretsConfigView';
+import React, {useCallback, useState} from 'react'
+import WidgetInput from './WidgetInput'
+import {nanoid} from 'nanoid'
+import {ObjectInputProps, PatchEvent, set} from 'sanity'
+import {CloudinaryAsset} from '../typings'
+import {useSecrets} from '@sanity/secrets'
+import {InsertHandlerParams} from '../typings'
+import {openMediaSelector} from '../utils'
+import SecretsConfigView, {namespace, Secrets} from './SecretsConfigView'
 
-type Props = {
-  type: Record<string, any>;
-  onChange: (patches: any) => void;
-  value: CloudinaryAsset;
-  level: number;
-  readOnly: boolean;
-  markers: any;
-  presence: any[];
-};
+const CloudinaryInput = (props: ObjectInputProps) => {
+  const [showSettings, setShowSettings] = useState(false)
+  const {secrets} = useSecrets<Secrets>(namespace)
+  const {onChange, schemaType: type} = props
+  const value = (props.value as CloudinaryAsset) || undefined
 
-const CloudinaryInput = (props: Props) => {
-  const [showSettings, setShowSettings] = useState(false);
-  const { secrets } = useSecrets<Secrets>(namespace);
+  const handleSelect = useCallback(
+    (payload: InsertHandlerParams) => {
+      const [asset] = payload.assets
+      if (!asset) {
+        return
+      }
 
-  const handleSelect = (payload: InsertHandlerParams) => {
-    const [asset] = payload.assets;
-    if (!asset) {
-      return;
-    }
-
-    const { onChange, type } = props;
-    const value = props.value || {};
-    onChange(
-      PatchEvent.from([
-        set(
-          Object.assign(
-            {
-              _type: type.name,
-              _version: 1,
-              ...(value._key ? { _key: value._key } : { _key: nanoid() }),
-            },
-            asset
-          )
-        ),
-      ])
-    );
-  };
+      onChange(
+        PatchEvent.from([
+          set(
+            Object.assign(
+              {
+                _type: type.name,
+                _version: 1,
+                ...(value?._key ? {_key: value._key} : {_key: nanoid()}),
+              },
+              asset
+            )
+          ),
+        ])
+      )
+    },
+    [onChange, type, value?._key]
+  )
 
   const action = secrets
     ? () =>
@@ -56,22 +46,16 @@ const CloudinaryInput = (props: Props) => {
           secrets.apiKey,
           false, // single selection
           handleSelect,
-          props.value
+          value
         )
-    : () => setShowSettings(true);
+    : () => setShowSettings(true)
 
   return (
     <>
-      {showSettings && (
-        <SecretsConfigView onClose={() => setShowSettings(false)} />
-      )}
-      <WidgetInput
-        onSetup={() => setShowSettings(true)}
-        openMediaSelector={action}
-        {...props}
-      />
+      {showSettings && <SecretsConfigView onClose={() => setShowSettings(false)} />}
+      <WidgetInput onSetup={() => setShowSettings(true)} openMediaSelector={action} {...props} />
     </>
-  );
-};
+  )
+}
 
-export default CloudinaryInput;
+export default CloudinaryInput
