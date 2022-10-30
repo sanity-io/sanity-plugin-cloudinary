@@ -3,3 +3,8 @@
 node_modules
 dist
 sanity-plugin-cloudinary-*.tgz
+
+*.iml
+.idea
+.parcel-cache
+lib
