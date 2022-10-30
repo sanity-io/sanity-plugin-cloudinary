@@ -1,8 +1,88 @@
-# Sanity + Cloudinary =	🖼️
+> **NOTE**
+>
+> This is the **Sanity Studio v3 version** of sanity-plugin-cloudinary.
+>
+> For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity-plugin-cloudinary).
 
 ## Installation
 
-`sanity install cloudinary`
+```
+npm install --save sanity-plugin-cloudinary@studio-v3
+```
+
+or
+
+```
+yarn add sanity-plugin-cloudinary@studio-v3
+```
+
+## Usage
+
+<TODO: Show usage here>
+
+> **NOTE**
+>
+> This is the **Sanity Studio v3 version** of sanity-plugin-cloudinary.
+>
+> For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity-plugin-cloudinary).
+
+## Installation
+
+```
+npm install --save sanity-plugin-cloudinary@studio-v3
+```
+
+or
+
+```
+yarn add sanity-plugin-cloudinary@studio-v3
+```
+
+## Usage
+
+<TODO: Show usage here>
+
+> **NOTE**
+>
+> This is the **Sanity Studio v3 version** of sanity-plugin-cloudinary.
+>
+> For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity-plugin-cloudinary).
+
+## Installation
+
+```
+npm install --save sanity-plugin-cloudinary@studio-v3
+```
+
+or
+
+```
+yarn add sanity-plugin-cloudinary@studio-v3
+```
+
+## Usage
+
+<TODO: Show usage here>
+
+# Sanity + Cloudinary =	🖼️
+
+> **NOTE**
+>
+> This is the **Sanity Studio v3 version** of sanity-plugin-cloudinary.
+>
+> For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity-plugin-cloudinary).
+
+## Installation
+
+```
+npm install --save sanity-plugin-cloudinary@studio-v3
+```
+
+or
+
+```
+yarn add sanity-plugin-cloudinary@studio-v3
+```
 
 ## Usage
 
@@ -133,3 +213,80 @@ Video assets gets a video player preview in the Studio
     "_type": "cloudinary.asset"
   }
 ```
+
+## License
+
+MIT-licensed. See LICENSE.
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
+
+### Release new version
+
+Run ["CI & Release" workflow](https://github.com/sanity-io/sanity-plugin-cloudinary/actions/workflows/main.yml).
+Make sure to select the main branch and check "Release new version".
+
+Semantic release will only release on configured branches, so it is safe to run release on any branch.
+
+
+## License
+
+MIT-licensed. See LICENSE.
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
+
+### Release new version
+
+Run ["CI & Release" workflow](https://github.com/sanity-io/sanity-plugin-cloudinary/actions/workflows/main.yml).
+Make sure to select the main branch and check "Release new version".
+
+Semantic release will only release on configured branches, so it is safe to run release on any branch.
+
+## License
+
+MIT-licensed. See LICENSE.
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
+
+### Release new version
+
+Run ["CI & Release" workflow](https://github.com/sanity-io/sanity-plugin-cloudinary/actions/workflows/main.yml).
+Make sure to select the main branch and check "Release new version".
+
+Semantic release will only release on configured branches, so it is safe to run release on any branch.
+
+## License
+
+MIT-licensed. See LICENSE.
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
+
+### Release new version
+
+Run ["CI & Release" workflow](https://github.com/sanity-io/sanity-plugin-cloudinary/actions/workflows/main.yml).
+Make sure to select the main branch and check "Release new version".
+
+Semantic release will only release on configured branches, so it is safe to run release on any branch.
