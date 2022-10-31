@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-v3-studio.2](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.0-v3-studio.1...v1.0.0-v3-studio.2) (2022-10-31)
+
+### Bug Fixes
+
+- **release:** initial v3 npm version ([f565046](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/f5650464194f303f3a5e65276b14e6b7f99560e1))
+
 ## 1.0.0-v3-studio.1 (2022-10-31)
 
 ### Features
