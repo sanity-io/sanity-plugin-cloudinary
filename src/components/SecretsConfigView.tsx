@@ -1,5 +1,5 @@
 import React from 'react'
-import {SettingsView} from '@sanity/secrets'
+import {SettingsView} from '@sanity/studio-secrets'
 
 export type Secrets = {
   cloudName: string

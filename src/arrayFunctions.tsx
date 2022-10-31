@@ -2,7 +2,7 @@ import React from 'react'
 import {Button} from '@sanity/ui'
 import {PatchEvent, setIfMissing, insert} from 'sanity'
 
-import {useSecrets} from '@sanity/secrets'
+import {useSecrets} from '@sanity/studio-secrets'
 import SecretsConfigView, {namespace} from './components/SecretsConfigView'
 import {cloudinaryAssetSchema} from './schema/cloudinaryAsset'
 import {openMediaSelector} from './utils'
