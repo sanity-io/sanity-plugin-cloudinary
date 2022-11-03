@@ -33,10 +33,10 @@ Also see notes below on how Cloudinary config should be provided.
 ### Add Cloudinary as an asset source to all images
 
 ```js
-import {createConfg} from 'sanity'
+import {defineConfg} from 'sanity'
 import {cloudinaryAssetSourcePlugin} from 'sanity-plugin-cloudinary'
 
-export default createConfig({
+export default defineConfg({
   /*...*/
   plugins: [cloudinaryAssetSourcePlugin()],
 })
@@ -45,10 +45,10 @@ export default createConfig({
 ### Fine tune image sources
 
 ```js
-import {createConfg} from 'sanity'
+import {defineConfg} from 'sanity'
 import {cloudinaryImageSource} from 'sanity-plugin-cloudinary'
 
-export default createConfig({
+export default defineConfg({
   /*...*/
   form: {
     image: {
@@ -72,10 +72,10 @@ export default createConfig({
 ## Cloudinary assets
 
 ```js
-import {createConfg} from 'sanity'
+import {defineConfg} from 'sanity'
 import {cloudinarySchemaPlugin} from 'sanity-plugin-cloudinary'
 
-export default createConfig({
+export default defineConfg({
   /*...*/
   plugins: [cloudinarySchemaPlugin()],
 })

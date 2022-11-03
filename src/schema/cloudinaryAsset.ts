@@ -77,11 +77,13 @@ export const cloudinaryAssetSchema = defineType({
     // context array of unknown content
     // metadata array of unknown content
   ],
-  components: {
-    input: CloudinaryInput,
-    diff: AssetDiff,
-    preview: AssetPreview,
-  },
+  ...({
+    components: {
+      input: CloudinaryInput,
+      diff: AssetDiff,
+      preview: AssetPreview,
+    },
+  } as {}), //TODO revert this change when rc.1 is released
   preview: {
     select: {
       url: 'url',
