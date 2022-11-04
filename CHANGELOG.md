@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-v3-studio.4](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.0-v3-studio.3...v1.0.0-v3-studio.4) (2022-11-04)
+
+### Bug Fixes
+
+- **deps:** pkg-utils & @sanity/plugin-kit ([9671271](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/96712711d406fe5a245cee572e2b499e40c6ac17))
+
 ## [1.0.0-v3-studio.3](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.0-v3-studio.2...v1.0.0-v3-studio.3) (2022-11-03)
 
 ### Bug Fixes
