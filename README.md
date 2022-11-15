@@ -1,22 +1,23 @@
 # sanity-plugin-cloudinary
 
-> **NOTE**
+> This is a **Sanity Studio v3** plugin.
+> This combines the sanity-plugin-cloudinary AND sanity-plugin-asset-source-cloudinary plugins previously for V2,
+> into a single plugin for V3.
 >
-> This is the **Sanity Studio v3 version** of sanity-plugin-cloudinary AND sanity-plugin-asset-source-cloudinary.
->
-> For the v2 versions of these, please refer to the [v2-branch for sanity-plugin-cloudinary](https://github.com/sanity-io/sanity-plugin-cloudinary) and
+> For the v2 versions of these, please refer to the 
+> [v2-branch for sanity-plugin-cloudinary](https://github.com/sanity-io/sanity-plugin-cloudinary/tree/studio-v2) and
 > [sanity-plugin-asset-source-cloudinary](https://github.com/sanity-io/sanity-plugin-asset-source-cloudinary).
 
 ## Installation
 
 ```
-npm install --save sanity-plugin-cloudinary@studio-v3
+npm install --save sanity-plugin-cloudinary
 ```
 
 or
 
 ```
-yarn add sanity-plugin-cloudinary@studio-v3
+yarn add sanity-plugin-cloudinary
 ```
 
 ## Usage
