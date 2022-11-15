@@ -1,7 +1,7 @@
 # Sanity + Cloudinary =	🖼️
 
 > This is a **Sanity Studio v2** plugin.
-> For the v3 version, please refer to the [v3-branch](https://github.com/sanity-io/latex-input).
+> For the v3 version, please refer to the [v3-branch](https://github.com/sanity-io/sanity-plugin-cloudinary/).
 
 ## Installation
 
