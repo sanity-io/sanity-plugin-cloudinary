@@ -1,95 +1,66 @@
-import React from 'react';
-import PatchEvent, { unset } from 'part:@sanity/form-builder/patch-event';
-import ButtonGrid from 'part:@sanity/components/buttons/button-grid';
-import Button from 'part:@sanity/components/buttons/default';
-import Fieldset from 'part:@sanity/components/fieldsets/default';
-import SetupIcon from 'part:@sanity/base/plugin-icon';
-import { Marker } from '@sanity/types';
-import styled from 'styled-components';
-import { CloudinaryAsset } from '../schema/cloudinaryAsset';
-import AssetPreview from './AssetPreview';
+import React, {useCallback} from 'react'
+import {ObjectInputProps, PatchEvent, unset} from 'sanity'
+import {Button, Flex, Grid, Stack} from '@sanity/ui'
+import {PlugIcon} from '@sanity/icons'
+import styled from 'styled-components'
+import AssetPreview from './AssetPreview'
+import {CloudinaryAsset} from '../typings'
 
 const SetupButtonContainer = styled.div`
   position: relative;
   display: block;
   font-size: 0.8em;
   transform: translate(0%, -10%);
-`;
+`
 
-type Props = {
-  type: Record<string, any>;
-  onChange: (patches: any) => void;
-  value: CloudinaryAsset | undefined;
-  level: number;
-  readOnly: boolean;
-  markers: Marker[];
-  presence: any[];
-  openMediaSelector: () => void;
-  onSetup: () => void;
-};
+type WidgetInputProps = ObjectInputProps & {openMediaSelector: () => void; onSetup: () => void}
 
-const WidgetInput = (props: Props) => {
-  const removeValue = () => {
-    const { onChange } = props;
-    onChange(PatchEvent.from([unset()]));
-  };
+const WidgetInput = (props: WidgetInputProps) => {
+  const {onChange, readOnly, value, openMediaSelector} = props
 
-  const {
-    value,
-    type,
-    markers,
-    level,
-    readOnly,
-    presence,
-    openMediaSelector,
-  } = props;
+  const removeValue = useCallback(() => {
+    onChange(PatchEvent.from([unset()]))
+  }, [onChange])
 
   return (
-    <>
+    <Stack>
       <SetupButtonContainer>
-        <Button
-          color="primary"
-          icon={SetupIcon}
-          kind="simple"
-          title="Configure"
-          onClick={props.onSetup}
-          tabIndex={1}
-        />
+        <Flex flex={1} justify="flex-end">
+          <Button
+            color="primary"
+            icon={PlugIcon}
+            mode="bleed"
+            title="Configure"
+            onClick={props.onSetup}
+            tabIndex={1}
+          />
+        </Flex>
       </SetupButtonContainer>
-      <Fieldset
-        markers={markers}
-        presence={presence}
-        legend={type.title}
-        description={type.description}
-        level={level}
-      >
-        <div style={{ textAlign: 'center' }}>
-          <AssetPreview value={value} />
-        </div>
 
-        <ButtonGrid align="start">
-          <Button
-            disabled={readOnly}
-            inverted
-            title="Select an asset"
-            kind="default"
-            onClick={openMediaSelector}
-          >
-            Select…
-          </Button>
-          <Button
-            disabled={readOnly || !value}
-            color="danger"
-            inverted
-            title="Remove asset"
-            onClick={removeValue}
-          >
-            Remove
-          </Button>
-        </ButtonGrid>
-      </Fieldset>
-    </>
-  );
-};
+      <Flex style={{textAlign: 'center'}} marginBottom={2}>
+        <AssetPreview value={value as CloudinaryAsset} />
+      </Flex>
 
-export default WidgetInput;
+      <Grid gap={1} style={{gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'}}>
+        <Button
+          disabled={readOnly}
+          mode="ghost"
+          title="Select an asset"
+          tone="default"
+          onClick={openMediaSelector}
+          text="Select…"
+        />
+        <Button
+          disabled={readOnly || !value}
+          tone="critical"
+          mode="ghost"
+          title="Remove asset"
+          text="Remove"
+          onClick={removeValue}
+        />
+      </Grid>
+    </Stack>
+  )
+}
+
+export default WidgetInput

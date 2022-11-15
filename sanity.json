@@ -1,20 +1,8 @@
 {
-  "paths": {
-    "source": "src",
-    "compiled": "dist"
-  },
   "parts": [
     {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "schema/cloudinaryAssetDerived"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "schema/cloudinaryAsset"
-    },
-    {
-      "implements": "part:@sanity/form-builder/input/array/functions",
-      "path": "arrayFunctions"
+      "implements": "part:@sanity/base/sanity-root",
+      "path": "./v2-incompatible.js"
     }
   ]
 }

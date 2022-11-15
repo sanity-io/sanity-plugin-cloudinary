@@ -1,63 +1,74 @@
-import * as React from 'react';
-
-export type InsertHandlerParams = {
-  assets: CloudinaryAssetResponse[];
-};
-
-declare global {
-  interface Window {
-    cloudinary: {
-      openMediaLibrary: (config: any, callbacks: any) => void;
-    };
-  }
-}
+import {CSSProperties} from 'react'
+import {CloudinaryAssetDerived} from './schema/cloudinaryAssetDerived'
 
 declare module '*.css' {
-  const content: { [className: string]: CSSProperties };
-  export default content;
+  const content: {[className: string]: CSSProperties}
+  export default content
 }
 
 export type CloudinaryDerivative = {
-  url: string;
-  secure_url: string;
-  raw_transformation: string;
-};
+  url: string
+  secure_url: string
+  raw_transformation: string
+}
 
 export type CloudinaryAssetResponse = {
-  public_id: string;
-  resource_type: string;
-  type: string;
-  url: string;
-  tags: string[];
-  secure_url: string;
-  format: string;
-  width: number;
-  height: number;
-  bytes: number;
-  derived?: CloudinaryDerivative[];
-};
-
-declare module 'part:@sanity/components/buttons/default' {
-  interface Props {
-    color?: string;
-    children?: any;
-    onClick?: any;
-    inverted?: boolean;
-    disabled?: boolean;
-    title?: string;
-    kind?: 'default' | 'simple';
-  }
-  export default class DefaultButton extends React.Component<Props, any> {}
+  public_id: string
+  resource_type: string
+  type: string
+  url: string
+  tags: string[]
+  secure_url: string
+  format: string
+  width: number
+  height: number
+  bytes: number
+  derived?: CloudinaryDerivative[]
 }
 
-declare module 'part:@sanity/components/buttons/button-grid' {
-  interface Props {
-    align?: string;
-  }
-  export default class ButtonGrid extends React.Component<Props, any> {}
+export type InsertHandlerParams = {
+  assets: CloudinaryAssetResponse[]
 }
 
-declare module 'part:@sanity/components/fieldsets/default' {
-  const shim: any;
-  export default shim;
+export interface CloudinaryMediaLibrary {
+  show: (config?: {asset: any; folder: any}) => void
+  hide: () => void
+}
+
+export type CloudinaryAsset = {
+  _type: string
+  _key?: string
+  _version: number
+  public_id: string
+  resource_type: string
+  type: string
+  format: string
+  version: number
+  url: string
+  secure_url: string
+  derived?: CloudinaryAssetDerived[]
+}
+
+export type AssetDocument = {
+  _id: string
+  label?: string
+  title?: string
+  description?: string
+  source?: {
+    id: string
+    name: string
+    url?: string
+  }
+  creditLine?: string
+  originalFilename?: string
+}
+
+declare global {
+  // eslint-disable-next-line no-unused-vars
+  interface Window {
+    cloudinary: {
+      openMediaLibrary: (config: any, callbacks: any) => void
+      createMediaLibrary: (config: any, callbacks?: any) => CloudinaryMediaLibrary
+    }
+  }
 }

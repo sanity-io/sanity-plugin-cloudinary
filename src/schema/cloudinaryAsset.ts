@@ -1,23 +1,10 @@
-import CloudinaryInput from '../components/CloudinaryInput';
-import AssetDiff from '../components/AssetDiff';
-import AssetPreview from '../components/AssetPreview';
-import { CloudinaryAssetDerived } from './cloudinaryAssetDerived';
+/* eslint-disable */
+import CloudinaryInput from '../components/CloudinaryInput'
+import AssetDiff from '../components/AssetDiff'
+import AssetPreview from '../components/AssetPreview'
+import {defineType} from 'sanity'
 
-export type CloudinaryAsset = {
-  _type: string;
-  _key?: string;
-  _version: number;
-  public_id: string;
-  resource_type: string;
-  type: string;
-  format: string;
-  version: number;
-  url: string;
-  secure_url: string;
-  derived?: CloudinaryAssetDerived[];
-};
-
-export default {
+export const cloudinaryAssetSchema = defineType({
   type: 'object',
   name: 'cloudinary.asset',
   fields: [
@@ -72,7 +59,7 @@ export default {
     {
       type: 'array',
       name: 'tags',
-      of: [{ type: 'string' }],
+      of: [{type: 'string'}],
     },
     {
       type: 'datetime',
@@ -81,7 +68,7 @@ export default {
     {
       type: 'array',
       name: 'derived',
-      of: [{ type: 'cloudinary.assetDerived' }],
+      of: [{type: 'cloudinary.assetDerived'}],
     },
     {
       type: 'string',
@@ -90,20 +77,25 @@ export default {
     // context array of unknown content
     // metadata array of unknown content
   ],
-  inputComponent: CloudinaryInput,
-  diffComponent: AssetDiff,
+  ...({
+    components: {
+      input: CloudinaryInput,
+      diff: AssetDiff,
+      preview: AssetPreview,
+    },
+  } as {}), //TODO revert this change when rc.1 is released
   preview: {
     select: {
       url: 'url',
       resource_type: 'resource_type',
       derived: 'derived.0.url',
     },
-    prepare({ url, derived, resource_type }: any) {
+    prepare({url, derived, resource_type}) {
       return {
+        title: url,
         resource_type,
         url: derived || url,
-      };
+      }
     },
-    component: AssetPreview,
   },
-};
+})

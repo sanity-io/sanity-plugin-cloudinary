@@ -1,10 +1,10 @@
-import React from 'react';
-import { SettingsView } from 'sanity-secrets';
+import React from 'react'
+import {SettingsView} from '@sanity/studio-secrets'
 
 export type Secrets = {
-  cloudName: string;
-  apiKey: string;
-};
+  cloudName: string
+  apiKey: string
+}
 
 const pluginConfigKeys = [
   {
@@ -17,13 +17,13 @@ const pluginConfigKeys = [
     title: 'API key',
     description: '',
   },
-];
+]
 
-export const namespace = 'cloudinary';
+export const namespace = 'cloudinary'
 
 type Props = {
-  onClose: () => void;
-};
+  onClose: () => void
+}
 
 const SecretsConfigView = (props: Props) => {
   return (
@@ -33,7 +33,7 @@ const SecretsConfigView = (props: Props) => {
       keys={pluginConfigKeys}
       onClose={props.onClose}
     />
-  );
-};
+  )
+}
 
-export default SecretsConfigView;
+export default SecretsConfigView
