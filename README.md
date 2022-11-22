@@ -5,7 +5,16 @@
 
 ## Installation
 
-`sanity install cloudinary@studio-v2`
+```bash
+yarn add sanity-plugin-cloudinary@studio-v2
+```
+
+Next, add `"cloudinary"` to `sanity.json` plugins array:
+```json
+"plugins": [
+  "cloudinary"
+]
+```
 
 ## Usage
 
