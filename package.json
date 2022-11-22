@@ -1,24 +1,16 @@
 {
+  "name": "sanity-plugin-cloudinary",
   "version": "0.2.2",
   "license": "MIT",
+  "author": "Sanity.io <hello@sanity.io>",
   "files": [
     "dist",
     "sanity.json"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
     "build": "sanipack build",
-    "watch": "sanipack build --watch",
-    "prepublishOnly": "sanipack build && sanipack verify"
-  },
-  "peerDependencies": {
-    "@sanity/base": "^2.6.2",
-    "@sanity/field": "^2.6.2",
-    "@sanity/form-builder": "^2.6.2",
-    "react": "^17.0",
-    "react-dom": "^17.0"
+    "prepublishOnly": "sanipack build && sanipack verify",
+    "watch": "sanipack build --watch"
   },
   "husky": {
     "hooks": {
@@ -31,12 +23,19 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "sanity-plugin-cloudinary",
-  "author": "Sanity.io <hello@sanity.io>",
+  "dependencies": {
+    "nanoid": "^3.1.22",
+    "sanity-secrets": "^0.0.6",
+    "styled-components": "^5.2.1",
+    "video.js": "^7.11.7"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@sanity/base": "^2.6.2",
     "@sanity/field": "^2.6.2",
     "@sanity/form-builder": "^2.6.2",
+    "@sanity/semantic-release-preset": "^2.0.2",
     "@sanity/types": "^2.6.0",
     "@size-limit/preset-small-lib": "^4.9.2",
     "@types/react": "^17.0.2",
@@ -52,10 +51,14 @@
     "tslib": "^2.1.0",
     "typescript": "^4.2.2"
   },
-  "dependencies": {
-    "nanoid": "^3.1.22",
-    "sanity-secrets": "^0.0.6",
-    "styled-components": "^5.2.1",
-    "video.js": "^7.11.7"
+  "peerDependencies": {
+    "@sanity/base": "^2.6.2",
+    "@sanity/field": "^2.6.2",
+    "@sanity/form-builder": "^2.6.2",
+    "react": "^17.0",
+    "react-dom": "^17.0"
+  },
+  "engines": {
+    "node": ">=10"
   }
 }
