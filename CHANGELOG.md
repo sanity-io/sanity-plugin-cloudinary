@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.0...v1.0.1) (2022-11-25)
+
+### Bug Fixes
+
+- **deps:** sanity ^3.0.0 (rc.3 compatible) ([0ff26b3](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/0ff26b3a600527668cf95079e18c9d264f7ad3c5))
+
 ## 1.0.0 (2022-11-15)
 
 ### ⚠ BREAKING CHANGES
