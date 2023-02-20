@@ -8,7 +8,7 @@ import {
 
 const widgetSrc = 'https://media-library.cloudinary.com/global/all.js'
 
-export function assetUrl(asset: CloudinaryAsset) {
+export function assetUrl(asset: Partial<Pick<CloudinaryAsset, 'url' | 'secure_url' | 'derived'>>) {
   if (asset.derived && asset.derived.length > 0) {
     const [derived] = asset.derived
     if (derived.secure_url) {

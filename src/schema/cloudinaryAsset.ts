@@ -93,8 +93,11 @@ export const cloudinaryAssetSchema = defineType({
     prepare({url, derived, resource_type}) {
       return {
         title: url,
-        resource_type,
-        url: derived || url,
+        value: {
+          title: url,
+          resource_type,
+          url: derived || url,
+        },
       }
     },
   },

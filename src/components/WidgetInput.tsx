@@ -37,7 +37,7 @@ const WidgetInput = (props: WidgetInputProps) => {
         </Flex>
       </SetupButtonContainer>
 
-      <Flex style={{textAlign: 'center'}} marginBottom={2}>
+      <Flex style={{textAlign: 'center', width: '100%'}} marginBottom={2}>
         <AssetPreview value={value as CloudinaryAsset} />
       </Flex>
 

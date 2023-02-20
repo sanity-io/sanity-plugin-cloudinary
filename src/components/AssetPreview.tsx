@@ -1,10 +1,10 @@
 import React from 'react'
 import VideoPlayer from './VideoPlayer'
 import {assetUrl} from '../utils'
-import {Box} from '@sanity/ui'
+import {Flex} from '@sanity/ui'
 import {CloudinaryAsset} from '../typings'
 
-type ComponentProps = {
+interface ComponentProps {
   layout?: 'default' | 'block'
   value: CloudinaryAsset | undefined
 }
@@ -18,13 +18,18 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
   switch (value.resource_type) {
     case 'video':
       return (
-        <Box>
+        <Flex
+          align="center"
+          style={{
+            maxWidth: layout === 'default' ? '80px' : '100%',
+          }}
+        >
           <VideoPlayer src={url} kind="player" />
-        </Box>
+        </Flex>
       )
     default:
       return (
-        <Box>
+        <Flex align="center">
           <img
             alt="preview"
             src={url}
@@ -33,7 +38,7 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
               height: 'auto',
             }}
           />
-        </Box>
+        </Flex>
       )
   }
 }

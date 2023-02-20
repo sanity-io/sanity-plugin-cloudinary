@@ -15,7 +15,7 @@ const CloudinaryDiffPreview = ({value}: Props) => {
 
   const url = assetUrl(value)
 
-  if (value.resource_type === 'video') {
+  if (value.resource_type === 'video' && url) {
     return (
       <section
         style={{
