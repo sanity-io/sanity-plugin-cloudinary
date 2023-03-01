@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.2...v1.1.0) (2023-03-01)
+
+### Features
+
+- context is now part of the schema (but not exposed in ui) ([31bf342](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/31bf3421308cbddd0bec523d02262f1ef1ee2b71))
+
 ## [1.0.2](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.0.1...v1.0.2) (2023-02-20)
 
 ### Bug Fixes
