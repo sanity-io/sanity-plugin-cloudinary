@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, {useCallback, useEffect, useRef, useState} from 'react'
 import {Box, Button, Dialog, Flex, Spinner, Stack, Text} from '@sanity/ui'
-import {CloudinaryMediaLibrary, InsertHandlerParams} from '../../typings'
+import {CloudinaryMediaLibrary, InsertHandlerParams} from '../../types'
 import {createMediaLibrary, decodeSourceId, encodeFilename, encodeSourceId} from '../../utils'
 import styled from 'styled-components'
 import {useSecrets} from '@sanity/studio-secrets'

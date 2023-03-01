@@ -124,24 +124,28 @@ Here is an example of which data is stored on your document after selecting an a
 
 ```json
 {
-  "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
-  "resource_type": "image",
-  "type": "upload",
-  "format": "jpg",
-  "version": 1616474653,
-  "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-  "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-  "width": 2400,
-  "height": 1344,
-  "bytes": 547710,
-  "duration": null,
-  "tags": [],
-  "metadata": {},
-  "created_at": "2021-03-23T04:44:13Z",
-  "access_mode": "public",
-  "_version": 1,
-  "_type": "cloudinary.asset"
-}
+    "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
+    "resource_type": "image",
+    "type": "upload",
+    "format": "jpg",
+    "version": 1616474653,
+    "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+    "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+    "width": 2400,
+    "height": 1344,
+    "bytes": 547710,
+    "duration": null,
+    "tags": [],
+    "context": {
+      "custom": {
+        "alt": "alternative text for image"
+      }
+    },
+    "created_at": "2021-03-23T04:44:13Z",
+    "access_mode": "public",
+    "_version": 1,
+    "_type": "cloudinary.asset"
+  }
 ```
 
 Note: The `_version` in the data here refers to the schema version of this plugin, should the way it stores the data from Cloudinary change in the future.
@@ -154,31 +158,35 @@ You can create a transformation when selecting the asset, and this information i
 
 ```json
 {
-  "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
-  "resource_type": "image",
-  "type": "upload",
-  "format": "jpg",
-  "version": 1616474653,
-  "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-  "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-  "width": 2400,
-  "height": 1344,
-  "bytes": 547710,
-  "duration": null,
-  "tags": null,
-  "metadata": [],
-  "created_at": "2021-03-23T04:44:13Z",
-  "derived": [
-    {
-      "url": "http://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-      "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-      "raw_transformation": "a_45"
-    }
-  ],
-  "access_mode": "public",
-  "_version": 1,
-  "_type": "cloudinary.asset"
-}
+    "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
+    "resource_type": "image",
+    "type": "upload",
+    "format": "jpg",
+    "version": 1616474653,
+    "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+    "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+    "width": 2400,
+    "height": 1344,
+    "bytes": 547710,
+    "duration": null,
+    "tags": null,
+    "context": {
+      "custom": {
+        "alt": "alternative text for image"
+      }
+    },
+    "created_at": "2021-03-23T04:44:13Z",
+    "derived": [
+      {
+        "url": "http://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+        "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+        "raw_transformation": "a_45"
+      }
+    ],
+    "access_mode": "public",
+    "_version": 1,
+    "_type": "cloudinary.asset"
+  }
 ```
 
 ## Video

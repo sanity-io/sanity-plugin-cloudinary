@@ -4,7 +4,7 @@ import {Button, Flex, Grid, Stack} from '@sanity/ui'
 import {PlugIcon} from '@sanity/icons'
 import styled from 'styled-components'
 import AssetPreview from './AssetPreview'
-import {CloudinaryAsset} from '../typings'
+import {CloudinaryAsset} from '../types'
 
 const SetupButtonContainer = styled.div`
   position: relative;

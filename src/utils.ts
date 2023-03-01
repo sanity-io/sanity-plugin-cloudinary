@@ -1,10 +1,10 @@
-/* eslint-disable camelcase */
+/* eslint-disable camelcase,@typescript-eslint/explicit-module-boundary-types */
 import {
   CloudinaryAsset,
   CloudinaryAssetResponse,
   CloudinaryMediaLibrary,
   InsertHandlerParams,
-} from './typings'
+} from './types'
 
 const widgetSrc = 'https://media-library.cloudinary.com/global/all.js'
 

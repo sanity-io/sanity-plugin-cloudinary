@@ -6,7 +6,7 @@ import {useSecrets} from '@sanity/studio-secrets'
 import SecretsConfigView, {namespace} from './components/SecretsConfigView'
 import {cloudinaryAssetSchema} from './schema/cloudinaryAsset'
 import {openMediaSelector} from './utils'
-import {InsertHandlerParams} from './typings'
+import {InsertHandlerParams} from './types'
 
 interface ApiConfig {
   cloudName: string

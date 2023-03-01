@@ -1,10 +1,4 @@
-import {CSSProperties} from 'react'
 import {CloudinaryAssetDerived} from './schema/cloudinaryAssetDerived'
-
-declare module '*.css' {
-  const content: {[className: string]: CSSProperties}
-  export default content
-}
 
 export type CloudinaryDerivative = {
   url: string

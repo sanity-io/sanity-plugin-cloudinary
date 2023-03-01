@@ -2,7 +2,7 @@ import React from 'react'
 import VideoPlayer from './VideoPlayer'
 import {assetUrl} from '../utils'
 import {Flex} from '@sanity/ui'
-import {CloudinaryAsset} from '../typings'
+import {CloudinaryAsset} from '../types'
 
 interface ComponentProps {
   layout?: 'default' | 'block'

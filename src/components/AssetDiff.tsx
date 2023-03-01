@@ -2,7 +2,7 @@ import React from 'react'
 import {DiffFromTo} from 'sanity'
 import VideoPlayer from './VideoPlayer'
 import {assetUrl} from '../utils'
-import {CloudinaryAsset} from '../typings'
+import {CloudinaryAsset} from '../types'
 
 type Props = {
   value: CloudinaryAsset | undefined

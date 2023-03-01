@@ -3,13 +3,31 @@ import {cloudinaryAssetDerivedSchema} from './schema/cloudinaryAssetDerived'
 import {definePlugin, AssetSource} from 'sanity'
 import {CloudinaryIcon} from './components/asset-source/Icon'
 import {CloudinaryAssetSource} from './components/asset-source/CloudinaryAssetSource'
+import {cloudinaryAssetContext} from './schema/cloudinaryAssetContext'
+import {cloudinaryAssetContextCustom} from './schema/cloudinaryAssetContextCustom'
 
-export {cloudinaryAssetSchema, cloudinaryAssetDerivedSchema}
+export {type CloudinaryAssetContext} from './schema/cloudinaryAssetContext'
+export {type CloudinaryAssetDerived} from './schema/cloudinaryAssetDerived'
+export {type CloudinaryAssetContextCustom} from './schema/cloudinaryAssetContextCustom'
+
+export type {AssetDocument, CloudinaryAsset} from './types'
+
+export {
+  cloudinaryAssetSchema,
+  cloudinaryAssetDerivedSchema,
+  cloudinaryAssetContext,
+  cloudinaryAssetContextCustom,
+}
 
 export const cloudinarySchemaPlugin = definePlugin({
   name: 'cloudinary-schema',
   schema: {
-    types: [cloudinaryAssetSchema, cloudinaryAssetDerivedSchema],
+    types: [
+      cloudinaryAssetSchema,
+      cloudinaryAssetDerivedSchema,
+      cloudinaryAssetContext,
+      cloudinaryAssetContextCustom,
+    ],
   },
 })
 
