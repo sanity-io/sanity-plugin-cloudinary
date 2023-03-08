@@ -116,7 +116,8 @@ If you use this type in an array, you will have additional array functions for a
 }
 ```
 
-<img width="658" alt="Screen Shot 2021-03-30 at 5 59 09 PM" src="https://user-images.githubusercontent.com/38528/113075424-bfd2bd00-9181-11eb-94e4-f69da4688963.png">
+<img width="571" alt="image" src="https://user-images.githubusercontent.com/835514/223700970-ee536da7-57b1-4ada-add7-57d7179f462e.png">
+
 
 ## Content
 
