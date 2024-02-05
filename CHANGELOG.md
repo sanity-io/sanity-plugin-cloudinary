@@ -5,6 +5,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.1...v1.1.2) (2024-02-05)
+
+### Bug Fixes
+
+- **deps:** update dependencies (non-major) ([#25](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/25)) ([3a30053](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/3a30053d5fa999c85aaa95861e4e3213567341ac))
+- **deps:** update dependency nanoid to v4 ([#26](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/26)) ([91aaf21](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/91aaf21c77b6fbb0494b353daa985da2a80d4312))
+- fixes styled-components dependency causing plugin to crash ([#67](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/67)) ([f4c245b](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/f4c245b2135530b5978b38865654b90d2eb82e3d))
+
 ## [1.1.1](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.0...v1.1.1) (2023-03-08)
 
 ### Bug Fixes
