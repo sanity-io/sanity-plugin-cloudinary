@@ -17,8 +17,30 @@ const CloudinaryInput = (props: ObjectInputProps) => {
   const handleSelect = useCallback(
     (payload: InsertHandlerParams) => {
       const [asset] = payload.assets
+
       if (!asset) {
         return
+      }
+
+      let updatedAsset = asset
+
+      //The metadata in Sanity Studio cannot contain special characters,
+      //hence the cloudinary metadata (context) needs to be transformed to valid object keys
+      if (asset.context) {
+        const objectWithRenamedKeys = Object.fromEntries(
+          Object.entries(asset.context.custom).map(([contextKey, contextValue]) => {
+            return [contextKey.replace(/[^a-zA-Z0-9_]|-/g, '_'), contextValue]
+          })
+        )
+
+        // Update the asset with the new custom values
+        updatedAsset = {
+          ...asset,
+          context: {
+            ...asset.context,
+            custom: objectWithRenamedKeys,
+          },
+        }
       }
 
       onChange(
@@ -30,7 +52,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
                 _version: 1,
                 ...(value?._key ? {_key: value._key} : {_key: nanoid()}),
               },
-              asset
+              updatedAsset
             )
           ),
         ])

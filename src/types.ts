@@ -17,6 +17,9 @@ export type CloudinaryAssetResponse = {
   width: number
   height: number
   bytes: number
+  context?: {
+    custom: Record<string, string>
+  }
   derived?: CloudinaryDerivative[]
 }
 
