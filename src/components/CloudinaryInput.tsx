@@ -22,26 +22,21 @@ const CloudinaryInput = (props: ObjectInputProps) => {
         return
       }
 
-      //The cloudinary metadata (context) needs to be transformed to a valid object key
-      //because the key can't contain special characters in the Studio
+      //The metadata in Sanity Studio cannot contain special characters,
+      //hence the cloudinary metadata (context) needs to be transformed to valid object keys
       if (asset.context) {
-        const customKey = Object.keys(asset.context.custom)[0]
-        const customValue = asset.context.custom[customKey]
-        const customRegex = customKey.replace(/[^a-zA-Z0-9_]|-/g, '_')
+        const objectWithRenamedKeys = Object.fromEntries(
+          Object.entries(asset.context.custom).map(([contextKey, contextValue]) => {
+            return [contextKey.replace(/[^a-zA-Z0-9_]|-/g, '_'), contextValue]
+          })
+        )
 
-        const {[customKey]: _, ...rest} = asset.context.custom
-        // Add the new key-value pair
-        const updatedCustom = {
-          ...rest,
-          [customRegex]: customValue,
-        }
-
-        // Update the asset with the new custom value
+        // Update the asset with the new custom values
         const updatedAsset = {
           ...asset,
           context: {
             ...asset.context,
-            custom: updatedCustom,
+            custom: objectWithRenamedKeys,
           },
         }
 
