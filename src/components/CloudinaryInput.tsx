@@ -22,6 +22,8 @@ const CloudinaryInput = (props: ObjectInputProps) => {
         return
       }
 
+      let updatedAsset = asset
+
       //The metadata in Sanity Studio cannot contain special characters,
       //hence the cloudinary metadata (context) needs to be transformed to valid object keys
       if (asset.context) {
@@ -32,44 +34,29 @@ const CloudinaryInput = (props: ObjectInputProps) => {
         )
 
         // Update the asset with the new custom values
-        const updatedAsset = {
+        updatedAsset = {
           ...asset,
           context: {
             ...asset.context,
             custom: objectWithRenamedKeys,
           },
         }
-
-        onChange(
-          PatchEvent.from([
-            set(
-              Object.assign(
-                {
-                  _type: type.name,
-                  _version: 1,
-                  ...(value?._key ? {_key: value._key} : {_key: nanoid()}),
-                },
-                updatedAsset
-              )
-            ),
-          ])
-        )
-      } else {
-        onChange(
-          PatchEvent.from([
-            set(
-              Object.assign(
-                {
-                  _type: type.name,
-                  _version: 1,
-                  ...(value?._key ? {_key: value._key} : {_key: nanoid()}),
-                },
-                asset
-              )
-            ),
-          ])
-        )
       }
+
+      onChange(
+        PatchEvent.from([
+          set(
+            Object.assign(
+              {
+                _type: type.name,
+                _version: 1,
+                ...(value?._key ? {_key: value._key} : {_key: nanoid()}),
+              },
+              updatedAsset
+            )
+          ),
+        ])
+      )
     },
     [onChange, type, value?._key]
   )
