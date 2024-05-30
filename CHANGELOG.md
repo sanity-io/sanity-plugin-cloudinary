@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.2...v1.1.3) (2024-05-30)
+
+### Bug Fixes
+
+- transform cloudinary metadata to no special characters ([#73](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/73)) ([f75e729](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/f75e72973cf4f7e3a0379fb7825dc39282394dc8))
+
 ## [1.1.2](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.1...v1.1.2) (2024-02-05)
 
 ### Bug Fixes
