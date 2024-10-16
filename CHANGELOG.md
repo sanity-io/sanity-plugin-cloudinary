@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.3...v1.1.4) (2024-10-16)
+
+### Bug Fixes
+
+- use 'dialogHeaderTitle' prop ([#77](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/77)) ([b770cb2](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/b770cb2777244f9cb68d02127446093b43ee414e))
+
 ## [1.1.3](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.2...v1.1.3) (2024-05-30)
 
 ### Bug Fixes
