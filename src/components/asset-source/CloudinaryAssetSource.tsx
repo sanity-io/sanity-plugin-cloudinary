@@ -14,7 +14,7 @@ export const Widget = styled.div`
 `
 
 export function CloudinaryAssetSource(props: AssetSourceComponentProps) {
-  const {onClose} = props
+  const {onClose, dialogHeaderTitle} = props
 
   const [loadingMessage, setLoadingMessage] = useState<string | undefined>(
     'Loading Cloudinary Media Libary'
@@ -118,7 +118,7 @@ export function CloudinaryAssetSource(props: AssetSourceComponentProps) {
   return (
     <Dialog
       id="cloudinary-asset-source"
-      header="Select image from Cloudinary"
+      header={dialogHeaderTitle ?? 'Select image from Cloudinary'}
       onClose={handleClose}
       open
       width={4}
