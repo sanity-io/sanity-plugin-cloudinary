@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.4...v1.1.5) (2024-11-26)
+
+### Bug Fixes
+
+- [#74](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/74) upgrade '@sanity/studio-secrets' and '@sanity/ui' to latest versions ([#78](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/78)) ([c71435a](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/c71435a544bd9d4019544c283c7c874b0b7bb3d1))
+
 ## [1.1.4](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.3...v1.1.4) (2024-10-16)
 
 ### Bug Fixes
