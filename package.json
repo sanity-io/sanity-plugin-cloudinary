@@ -49,8 +49,8 @@
   "dependencies": {
     "@sanity/icons": "^2.0.0",
     "@sanity/incompatible-plugin": "^1.0.4",
-    "@sanity/studio-secrets": "^2.0.1",
-    "@sanity/ui": "^1.0.0",
+    "@sanity/studio-secrets": "^3.0.0",
+    "@sanity/ui": "^2.8.25",
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
