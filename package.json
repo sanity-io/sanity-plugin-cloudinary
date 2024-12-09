@@ -51,7 +51,7 @@
     "@sanity/incompatible-plugin": "^1.0.4",
     "@sanity/studio-secrets": "^3.0.0",
     "@sanity/ui": "^2.8.25",
-    "nanoid": "^4.0.0"
+    "nanoid": "^5.0.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
