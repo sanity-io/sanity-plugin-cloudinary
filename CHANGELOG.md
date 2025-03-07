@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.5...v1.2.0) (2025-03-07)
+
+### Features
+
+- add react 19 support ([8e01cdd](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/8e01cddba570bb5b67f4e7f6e8b221ce40bc76bd))
+
 ## [1.1.5](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.4...v1.1.5) (2024-11-26)
 
 ### Bug Fixes
