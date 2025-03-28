@@ -44,6 +44,7 @@ export type CloudinaryAsset = {
   url: string
   secure_url: string
   derived?: CloudinaryAssetDerived[]
+  display_name?: string
 }
 
 export type AssetDocument = {
