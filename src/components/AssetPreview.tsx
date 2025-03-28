@@ -16,9 +16,6 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
     return null
   }
 
-  const previewUrl =
-    value.format === 'pdf' ? url?.replace('image/upload', 'image/upload/f_jpg,pg_1') : url
-
   switch (value.resource_type) {
     case 'video':
       return (
@@ -28,7 +25,7 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
             maxWidth: layout === 'default' ? '80px' : '100%',
           }}
         >
-          <VideoPlayer src={previewUrl} kind="player" />
+          <VideoPlayer src={url} kind="player" />
         </Flex>
       )
     case 'raw':
@@ -45,7 +42,14 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
         <Flex align="center">
           <img
             alt="preview"
-            src={previewUrl}
+            src={
+              value.format === 'pdf'
+                ? url?.replace(
+                    'image/upload',
+                    'image/upload/f_jpg,pg_1,l_text:Verdana_75_letter_spacing_14:PDF'
+                  )
+                : url
+            }
             style={{
               maxWidth: layout === 'default' ? '80px' : '100%',
               height: 'auto',
