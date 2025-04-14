@@ -43,6 +43,9 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
           <img
             alt="preview"
             src={
+              // Cloudinary returns resource_type as "image" even for PDFs,
+              // so we check the format to handle PDFs specifically.
+              // If it's a PDF, convert the first page to JPG and overlay a "PDF" label for thumbnail clarity.
               value.format === 'pdf'
                 ? url?.replace(
                     'image/upload',
