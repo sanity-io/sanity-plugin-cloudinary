@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.2.0...v1.3.0) (2025-04-16)
+
+### Features
+
+- pdf and raw resource_type preview ([339bc56](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/339bc563f1d51c66b3a6e42fd60bc4d69d95f301))
+
 ## [1.2.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.1.5...v1.2.0) (2025-03-07)
 
 ### Features
