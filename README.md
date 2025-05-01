@@ -4,7 +4,7 @@
 > This combines the sanity-plugin-cloudinary AND sanity-plugin-asset-source-cloudinary plugins previously for V2,
 > into a single plugin for V3.
 >
-> For the v2 versions of these, please refer to the 
+> For the v2 versions of these, please refer to the
 > [v2-branch for sanity-plugin-cloudinary](https://github.com/sanity-io/sanity-plugin-cloudinary/tree/studio-v2) and
 > [sanity-plugin-asset-source-cloudinary](https://github.com/sanity-io/sanity-plugin-asset-source-cloudinary).
 
@@ -22,10 +22,11 @@ yarn add sanity-plugin-cloudinary
 
 ## Usage
 
-There are two plugins in this package:
+There are three plugins in this package:
 
 - `cloudinaryAssetSourcePlugin` - use this if you intend to serve Cloudinary images from the Sanity CDN
 - `cloudinarySchemaPlugin` - use this if you intend to serve Cloudinary images from the Cloudinary CDN
+- `cloudinaryReferencePlugin` - use this if you want to reference Cloudinary assets as document references
 
 Also see notes below on how Cloudinary config should be provided.
 
@@ -91,6 +92,40 @@ Now you can declare a field to be `cloudinary.asset` in your schema
       description: "This asset is served from Cloudinary",
     }
 ```
+
+## Cloudinary Reference Assets
+
+This plugin mode allows you to store Cloudinary assets as document references, which can be useful for reusing the same asset across multiple documents.
+
+```js
+import {defineConfig} from 'sanity'
+import {cloudinaryReferencePlugin} from 'sanity-plugin-cloudinary'
+
+export default defineConfig({
+  /*...*/
+  plugins: [cloudinaryReferencePlugin()],
+})
+```
+
+Now you can declare a field to be a reference to a Cloudinary asset:
+
+```javascript
+{
+  type: "cloudinaryAssetReference",
+  name: "image",
+  description: "This is a reference to a Cloudinary asset document",
+}
+```
+
+The plugin creates and maintains document references automatically. When you select an asset through the Cloudinary Media Library, it will:
+1. Create a `cloudinaryAssetDocument` if the asset doesn't exist yet in your dataset
+2. Update the asset if it already exists
+3. Store a reference to the asset document in your current document
+
+This approach is particularly useful for:
+- Reusing the same assets across multiple documents
+- Updating assets in one place and having the changes reflected everywhere
+- Managing assets separately from the content that uses them
 
 ## Config
 

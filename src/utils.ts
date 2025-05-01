@@ -4,6 +4,7 @@ import {
   CloudinaryAssetResponse,
   CloudinaryMediaLibrary,
   InsertHandlerParams,
+  ShowHandlerParams,
 } from './types'
 
 const widgetSrc = 'https://media-library.cloudinary.com/global/all.js'
@@ -27,7 +28,8 @@ export const openMediaSelector = (
   apiKey: string,
   multiple: boolean,
   insertHandler: (params: InsertHandlerParams) => void,
-  selectedAsset?: CloudinaryAsset
+  selectedAsset?: CloudinaryAsset,
+  showHandler?: () => void
 ) => {
   loadJS(widgetSrc, () => {
     const options: Record<string, any> = {
@@ -45,7 +47,13 @@ export const openMediaSelector = (
       }
     }
 
-    window.cloudinary.openMediaLibrary(options, {insertHandler})
+    const callbacks: any = {insertHandler}
+
+    if (showHandler) {
+      callbacks.showHandler = showHandler
+    }
+
+    window.cloudinary.openMediaLibrary(options, callbacks)
   })
 }
 
