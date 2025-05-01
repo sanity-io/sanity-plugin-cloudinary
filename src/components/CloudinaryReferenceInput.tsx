@@ -31,7 +31,7 @@ export function CloudinaryReferenceInput(props: any) {
       }
 
       // Create a unique ID for this asset based on its Cloudinary public_id
-      const assetId = `cloudinary-${asset.public_id.replace(/\//g, '-')}`
+      const assetId = `cloudinary-${asset.public_id.replace(/\//g, '-').replace(/\./g, '_')}`
 
       try {
         // Check if this asset already exists in Sanity
