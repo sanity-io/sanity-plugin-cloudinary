@@ -8,6 +8,7 @@ export type CloudinaryDerivative = {
 
 export type CloudinaryAssetResponse = {
   public_id: string
+  id: string
   resource_type: string
   type: string
   url: string
