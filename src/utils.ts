@@ -29,7 +29,8 @@ export const openMediaSelector = (
   multiple: boolean,
   insertHandler: (params: InsertHandlerParams) => void,
   selectedAsset?: CloudinaryAsset,
-  showHandler?: () => void
+  showHandler?: () => void,
+  folder?: {resource_type?: 'image' | 'video'; path?: string}
 ) => {
   loadJS(widgetSrc, () => {
     const options: Record<string, any> = {
@@ -44,6 +45,13 @@ export const openMediaSelector = (
         public_id: selectedAsset.public_id,
         type: selectedAsset.type,
         resource_type: selectedAsset.resource_type,
+      }
+    }
+
+    if (folder) {
+      options.folder = {
+        path: folder.path,
+        resource_type: folder.resource_type,
       }
     }
 

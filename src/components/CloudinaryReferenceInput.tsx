@@ -1,4 +1,6 @@
-import React, {useCallback, useState} from 'react'
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/jsx-no-bind */
+import React, {useCallback, useState, useMemo} from 'react'
 import {Button, Stack, Flex, Grid} from '@sanity/ui'
 import {useClient} from 'sanity'
 import {PatchEvent, set, unset} from 'sanity'
@@ -11,7 +13,7 @@ import SecretsConfigView, {namespace, Secrets} from './SecretsConfigView'
 import {InsertHandlerParams} from '../types'
 
 export function CloudinaryReferenceInput(props: any) {
-  const {onChange, value} = props
+  const {onChange, value, schemaType} = props
   const [showSettings, setShowSettings] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const {secrets} = useSecrets<Secrets>(namespace)
@@ -20,6 +22,18 @@ export function CloudinaryReferenceInput(props: any) {
   const cloudName = secrets?.cloudName
   const apiKey = secrets?.apiKey
   const hasConfig = apiKey && cloudName
+
+  const folderOption = useMemo(() => {
+    if (schemaType?.options.folder) {
+      return {
+        path: schemaType.options.folder.path,
+        // eslint-disable-next-line camelcase
+        resource_type: schemaType.options.folder.resource_type,
+      }
+    }
+
+    return {}
+  }, [schemaType?.options.folder])
 
   // Handle selecting an asset from Cloudinary
   const handleSelect = useCallback(
@@ -30,14 +44,11 @@ export function CloudinaryReferenceInput(props: any) {
         return
       }
 
-      // Create a unique ID for this asset based on its Cloudinary public_id
-      const assetId = `cloudinary-${asset.public_id.replace(/\//g, '-').replace(/\./g, '_')}`
-
       try {
         // Check if this asset already exists in Sanity
         const existingAsset = await client.fetch(
-          `*[_type == "cloudinaryAssetDocument" && asset.public_id == $publicId][0]`,
-          {publicId: asset.public_id}
+          `*[_type == "cloudinaryAssetDocument" && asset.id == $id][0]`,
+          {id: asset.id}
         )
 
         if (existingAsset) {
@@ -55,9 +66,9 @@ export function CloudinaryReferenceInput(props: any) {
             )
           )
         } else {
-          // Create a new asset document
+          // Create a new asset document with a proper UUID
           const newAsset = await client.create({
-            _id: assetId,
+            _id: nanoid(),
             _type: 'cloudinaryAssetDocument',
             asset: {
               ...asset,
@@ -106,7 +117,8 @@ export function CloudinaryReferenceInput(props: any) {
         undefined,
         () => {
           setIsLoading(false)
-        }
+        },
+        folderOption
       )
 
       // Set a timeout to reset loading state if modal takes too long
@@ -117,7 +129,7 @@ export function CloudinaryReferenceInput(props: any) {
       console.error('Error opening Cloudinary media selector:', error)
       setIsLoading(false)
     }
-  }, [cloudName, apiKey, hasConfig, handleSelect])
+  }, [cloudName, apiKey, hasConfig, handleSelect, folderOption])
 
   return (
     <Stack space={3}>
