@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.3.0...v1.3.1) (2025-07-10)
+
+### Bug Fixes
+
+- **deps:** allow studio v4 peer dep ranges ([7586517](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/7586517ee6d5c9e5a736c4dec5d43f2361512377))
+
 ## [1.3.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.2.0...v1.3.0) (2025-04-16)
 
 ### Features
