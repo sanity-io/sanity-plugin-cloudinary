@@ -1,13 +1,5 @@
 # sanity-plugin-cloudinary
 
-> This is a **Sanity Studio v3** plugin.
-> This combines the sanity-plugin-cloudinary AND sanity-plugin-asset-source-cloudinary plugins previously for V2,
-> into a single plugin for V3.
->
-> For the v2 versions of these, please refer to the 
-> [v2-branch for sanity-plugin-cloudinary](https://github.com/sanity-io/sanity-plugin-cloudinary/tree/studio-v2) and
-> [sanity-plugin-asset-source-cloudinary](https://github.com/sanity-io/sanity-plugin-asset-source-cloudinary).
-
 ## Installation
 
 ```
@@ -118,35 +110,34 @@ If you use this type in an array, you will have additional array functions for a
 
 <img width="571" alt="image" src="https://user-images.githubusercontent.com/835514/223700970-ee536da7-57b1-4ada-add7-57d7179f462e.png">
 
-
 ## Content
 
 Here is an example of which data is stored on your document after selecting an asset.
 
 ```json
 {
-    "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
-    "resource_type": "image",
-    "type": "upload",
-    "format": "jpg",
-    "version": 1616474653,
-    "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-    "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-    "width": 2400,
-    "height": 1344,
-    "bytes": 547710,
-    "duration": null,
-    "tags": [],
-    "context": {
-      "custom": {
-        "alt": "alternative text for image"
-      }
-    },
-    "created_at": "2021-03-23T04:44:13Z",
-    "access_mode": "public",
-    "_version": 1,
-    "_type": "cloudinary.asset"
-  }
+  "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
+  "resource_type": "image",
+  "type": "upload",
+  "format": "jpg",
+  "version": 1616474653,
+  "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+  "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+  "width": 2400,
+  "height": 1344,
+  "bytes": 547710,
+  "duration": null,
+  "tags": [],
+  "context": {
+    "custom": {
+      "alt": "alternative text for image"
+    }
+  },
+  "created_at": "2021-03-23T04:44:13Z",
+  "access_mode": "public",
+  "_version": 1,
+  "_type": "cloudinary.asset"
+}
 ```
 
 Note: The `_version` in the data here refers to the schema version of this plugin, should the way it stores the data from Cloudinary change in the future.
@@ -159,35 +150,35 @@ You can create a transformation when selecting the asset, and this information i
 
 ```json
 {
-    "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
-    "resource_type": "image",
-    "type": "upload",
-    "format": "jpg",
-    "version": 1616474653,
-    "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-    "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-    "width": 2400,
-    "height": 1344,
-    "bytes": 547710,
-    "duration": null,
-    "tags": null,
-    "context": {
-      "custom": {
-        "alt": "alternative text for image"
-      }
-    },
-    "created_at": "2021-03-23T04:44:13Z",
-    "derived": [
-      {
-        "url": "http://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-        "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
-        "raw_transformation": "a_45"
-      }
-    ],
-    "access_mode": "public",
-    "_version": 1,
-    "_type": "cloudinary.asset"
-  }
+  "public_id": "29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x",
+  "resource_type": "image",
+  "type": "upload",
+  "format": "jpg",
+  "version": 1616474653,
+  "url": "http://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+  "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+  "width": 2400,
+  "height": 1344,
+  "bytes": 547710,
+  "duration": null,
+  "tags": null,
+  "context": {
+    "custom": {
+      "alt": "alternative text for image"
+    }
+  },
+  "created_at": "2021-03-23T04:44:13Z",
+  "derived": [
+    {
+      "url": "http://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+      "secure_url": "https://res.cloudinary.com/dzwiku20l/image/upload/a_45/v1616474653/29b4a88182b4cb50330011d23a29bcb371bd5886-2400x1344_lzcx7x.jpg",
+      "raw_transformation": "a_45"
+    }
+  ],
+  "access_mode": "public",
+  "_version": 1,
+  "_type": "cloudinary.asset"
+}
 ```
 
 ## Video
@@ -236,4 +227,3 @@ Run ["CI & Release" workflow](https://github.com/sanity-io/sanity-plugin-cloudin
 Make sure to select the main branch and check "Release new version".
 
 Semantic release will only release on configured branches, so it is safe to run release on any branch.
-
