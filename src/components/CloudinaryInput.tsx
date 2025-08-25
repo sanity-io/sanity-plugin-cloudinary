@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react'
 import WidgetInput from './WidgetInput'
 import {nanoid} from 'nanoid'
 import {ObjectInputProps, PatchEvent, set} from 'sanity'
-import {CloudinaryAsset} from '../types'
+import {CloudinaryAsset, CloudinaryAssetResponse} from '../types'
 import {useSecrets} from '@sanity/studio-secrets'
 import {InsertHandlerParams} from '../types'
 import {openMediaSelector} from '../utils'
@@ -14,6 +14,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
   const {onChange, schemaType: type} = props
   const value = (props.value as CloudinaryAsset) || undefined
 
+  /* eslint-disable camelcase */
   const handleSelect = useCallback(
     (payload: InsertHandlerParams) => {
       const [asset] = payload.assets
@@ -23,6 +24,29 @@ const CloudinaryInput = (props: ObjectInputProps) => {
       }
 
       let updatedAsset = asset
+
+      // Update the asset with the new custom values
+      const assetWithoutNulls = Object.fromEntries(
+        Object.entries(asset).filter(([_, assetValue]) => assetValue !== null)
+      ) as CloudinaryAssetResponse
+
+      // Ensure we preserve the required fields from the original asset
+      const requiredFields = {
+        public_id: asset.public_id,
+        resource_type: asset.resource_type,
+        type: asset.type,
+        url: asset.url,
+        secure_url: asset.secure_url,
+        format: asset.format,
+        width: asset.width,
+        height: asset.height,
+        bytes: asset.bytes,
+        tags: asset.tags,
+      }
+      updatedAsset = {
+        ...assetWithoutNulls,
+        ...requiredFields,
+      }
 
       //The metadata in Sanity Studio cannot contain special characters,
       //hence the cloudinary metadata (context) needs to be transformed to valid object keys
@@ -35,11 +59,24 @@ const CloudinaryInput = (props: ObjectInputProps) => {
 
         // Update the asset with the new custom values
         updatedAsset = {
-          ...asset,
+          ...updatedAsset,
           context: {
             ...asset.context,
             custom: objectWithRenamedKeys,
           },
+        }
+      }
+
+      // Handle derived field - only include if not null
+      if (asset.derived) {
+        const derivedWithType = asset.derived.map((derivedItem) => ({
+          ...derivedItem,
+          _type: 'derived',
+        }))
+
+        updatedAsset = {
+          ...updatedAsset,
+          derived: derivedWithType,
         }
       }
 
@@ -78,6 +115,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
       <WidgetInput onSetup={() => setShowSettings(true)} openMediaSelector={action} {...props} />
     </>
   )
+  /* eslint-enable camelcase */
 }
 
 export default CloudinaryInput

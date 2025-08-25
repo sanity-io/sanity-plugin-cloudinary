@@ -68,7 +68,7 @@ export const cloudinaryAssetSchema = defineType({
     {
       type: 'array',
       name: 'derived',
-      of: [{type: 'cloudinary.assetDerived'}],
+      of: [{type: 'cloudinary.assetDerived', name: 'derived'}],
     },
     {
       type: 'string',
