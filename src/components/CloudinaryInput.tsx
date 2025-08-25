@@ -14,6 +14,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
   const {onChange, schemaType: type} = props
   const value = (props.value as CloudinaryAsset) || undefined
 
+  /* eslint-disable camelcase */
   const handleSelect = useCallback(
     (payload: InsertHandlerParams) => {
       const [asset] = payload.assets
@@ -66,6 +67,19 @@ const CloudinaryInput = (props: ObjectInputProps) => {
         }
       }
 
+      // Handle derived field - only include if not null
+      if (asset.derived) {
+        const derivedWithType = asset.derived.map((derivedItem) => ({
+          ...derivedItem,
+          _type: 'derived',
+        }))
+
+        updatedAsset = {
+          ...updatedAsset,
+          derived: derivedWithType,
+        }
+      }
+
       onChange(
         PatchEvent.from([
           set(
@@ -101,6 +115,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
       <WidgetInput onSetup={() => setShowSettings(true)} openMediaSelector={action} {...props} />
     </>
   )
+  /* eslint-enable camelcase */
 }
 
 export default CloudinaryInput
