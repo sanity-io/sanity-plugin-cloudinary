@@ -1,4 +1,6 @@
 /* eslint-disable camelcase,@typescript-eslint/explicit-module-boundary-types */
+import {CloudinaryImage, CloudConfig} from '@cloudinary/url-gen'
+import {scale} from '@cloudinary/url-gen/actions/resize'
 import {
   CloudinaryAsset,
   CloudinaryAssetResponse,
@@ -8,7 +10,22 @@ import {
 
 const widgetSrc = 'https://media-library.cloudinary.com/global/all.js'
 
-export function assetUrl(asset: Partial<Pick<CloudinaryAsset, 'url' | 'secure_url' | 'derived'>>) {
+export function assetUrl(
+  asset: Partial<Pick<CloudinaryAsset, 'url' | 'secure_url' | 'derived' | 'public_id' | 'format'>>,
+  cloudName?: string
+): string | undefined {
+  // If we have cloudName and public_id, use url-gen for optimized preview
+  if (cloudName && asset.public_id) {
+    const cloudConfig = new CloudConfig({cloudName})
+    const image = new CloudinaryImage(asset.public_id, cloudConfig)
+      // Use scale with width only to maintain aspect ratio
+      // 400px width gives good quality while staying performant
+      .resize(scale().width(400))
+
+    return image.toURL()
+  }
+
+  // Fallback to existing URL selection logic
   if (asset.derived && asset.derived.length > 0) {
     const [derived] = asset.derived
     if (derived.secure_url) {

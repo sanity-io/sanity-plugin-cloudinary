@@ -3,17 +3,22 @@ import {DiffFromTo} from 'sanity'
 import VideoPlayer from './VideoPlayer'
 import {assetUrl} from '../utils'
 import {CloudinaryAsset} from '../types'
+import {useSecrets} from '@sanity/studio-secrets'
+import {namespace, Secrets} from './SecretsConfigView'
 
 type Props = {
   value: CloudinaryAsset | undefined
 }
 
 const CloudinaryDiffPreview = ({value}: Props) => {
+  const {secrets} = useSecrets<Secrets>(namespace)
+  const cloudName = secrets?.cloudName
+
   if (!value) {
     return null
   }
 
-  const url = assetUrl(value)
+  const url = assetUrl(value, cloudName)
 
   if (value.resource_type === 'video' && url) {
     return (
