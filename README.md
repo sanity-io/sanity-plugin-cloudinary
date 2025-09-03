@@ -3,6 +3,12 @@
 ## Installation
 
 ```
+pnpm add sanity-plugin-cloudinary
+```
+
+or
+
+```
 npm install --save sanity-plugin-cloudinary
 ```
 
