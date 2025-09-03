@@ -5,6 +5,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.3.1...v1.4.0) (2025-09-03)
+
+### Features
+
+- Handle Null Values and Anon Objects for Copy/Paste ([0e8759e](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/0e8759e9eeac634b5e251ee06b7ce690d0e91598))
+
+### Bug Fixes
+
+- update readme ([ac4fd8f](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/ac4fd8f54c9d3d6e0737b6897d49c4142a5028b8))
+
 ## [1.3.1](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.3.0...v1.3.1) (2025-07-10)
 
 ### Bug Fixes
