@@ -1,5 +1,6 @@
 # sanity-plugin-cloudinary
 
+
 ## Installation
 
 ```
