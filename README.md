@@ -58,10 +58,10 @@ export default defineConfg({
           return [...previousAssetSources, cloudinaryImageSource]
         }
         if (context.currentUser?.roles.includes('onlyCloudinaryAccess')) {
-          // only use clooudinary as an asset source
+          // only use cloudinary as an asset source
           return [cloudinaryImageSource]
         }
-        // dont add cloudnary as an asset sources
+        // don't add cloudinary as an asset sources
         return previousAssetSources
       },
     },
