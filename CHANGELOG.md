@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.4.0...v1.4.1) (2025-12-18)
+
+### Bug Fixes
+
+- **deps:** make peer dependencies include sanity 5.x ([#94](https://github.com/sanity-io/sanity-plugin-cloudinary/issues/94)) ([d4a7765](https://github.com/sanity-io/sanity-plugin-cloudinary/commit/d4a77654514ef14ea920b23e6ead9a8e59efc23c))
+
 ## [1.4.0](https://github.com/sanity-io/sanity-plugin-cloudinary/compare/v1.3.1...v1.4.0) (2025-09-03)
 
 ### Features
