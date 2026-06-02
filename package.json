@@ -50,7 +50,7 @@
     "@sanity/icons": "^3.7.0",
     "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/studio-secrets": "^3.0.3",
-    "@sanity/ui": "^2.15.2",
+    "@sanity/ui": "^3.2.0",
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
